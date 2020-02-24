@@ -48,7 +48,7 @@
         
 <div class="nav" id="nav">
     <div class="avatar-name">
-        <div class="avatar ">
+        <div class="avatar radius">
             <img src="/myblog/img/1.jpg" />
         </div>
         <div class="name">
@@ -79,6 +79,13 @@
                 <a href="/myblog/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
                 </a>
             </li>
             
@@ -128,9 +135,9 @@
         <li >
             <span>02-24</span>
             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/myblog/2020/02/24/hello-world/">
+            <a href="/myblog/2020/02/24/win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装/">
                         <span>
-                            Hello World
+                            win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装
                         </span>
             </a>
             <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -186,7 +193,7 @@
 
 <script>
     // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
+    window.hexo_search_path = "search.json"
     window.hexo_root = "/myblog/"
     window.isPost = false
 </script>
