@@ -1,142 +1,71 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" class="loading">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="记录">
-    <link rel="shortcut icon" href="/myblog/img/favicon.ico">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>用pyqt5完成python环境下的GUI设计以及cv2相关操作 - 山山</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="shanshan,"> 
+    <meta name="description" content="pyqt5环境配置
+我使用的是pycharm+Ubuntu16.04，网上关于环境配置的博客很多，我也是参考了别人的博客，这里简单写一下
 
-    <title>
-        
-        用pyqt5完成python环境下的GUI设计以及cv2相关操作 - 山山的博客 | 33&#39;s Blog
-        
-    </title>
-
-    <!-- Custom CSS -->
+第三方库下载，在终端使用pip安装即可，由于我使用anac,"> 
+    <meta name="author" content="山山"> 
+    <link rel="alternative" href="atom.xml" title="山山" type="application/atom+xml"> 
+    <link rel="icon" href="/myblog/img/favicon.png"> 
     
-<link rel="stylesheet" href="/myblog/css/aircloud.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
     
-<link rel="stylesheet" href="/myblog/css/gitment.css">
+<link rel="stylesheet" href="/myblog/css/diaspora.css">
 
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i>  </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/myblog/img/1.jpg" />
-        </div>
-        <div class="name">
-            <i>山山</i>
+<body class="loading">
+    <span id="config-title" style="display:none">山山</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://kumybryce.gitee.io/myblog"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">用pyqt5完成python环境下的GUI设计以及cv2相关操作</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/myblog/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/myblog/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/myblog/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/myblog/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">用pyqt5完成python环境下的GUI设计以及cv2相关操作</h1>
+        <div class="stuff">
+            <span>四月 16, 2020</span>
             
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5环境配置"><span class="toc-text">pyqt5环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5的使用"><span class="toc-text">pyqt5的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5中的多线程"><span class="toc-text">pyqt5中的多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv图片叠加混合"><span class="toc-text">opencv图片叠加混合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同时播放两种声音"><span class="toc-text">同时播放两种声音</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置文本框只能输入数字"><span class="toc-text">设置文本框只能输入数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序功能介绍"><span class="toc-text">程序功能介绍</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
 
         </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i>  </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        用pyqt5完成python环境下的GUI设计以及cv2相关操作
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-16 01:27:56</span></span>
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content ">
-        <h2 id="pyqt5环境配置"><a href="#pyqt5环境配置" class="headerlink" title="pyqt5环境配置"></a>pyqt5环境配置</h2><ul>
+        <div class="content markdown">
+            <h2 id="pyqt5环境配置"><a href="#pyqt5环境配置" class="headerlink" title="pyqt5环境配置"></a>pyqt5环境配置</h2><ul>
 <li><p>我使用的是pycharm+Ubuntu16.04，网上关于环境配置的博客很多，我也是参考了别人的博客，这里简单写一下</p>
 </li>
 <li><p>第三方库下载，在终端使用pip安装即可，由于我使用<code>anaconda</code>创建的虚拟环境<code>pytorch_yolo3</code>，所以先激活环境</p>
@@ -208,92 +137,137 @@
 <img src="https://img-blog.csdnimg.cn/20200416011542345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70"  height="350" width="720">
 <img src="https://img-blog.csdnimg.cn/2020041601161746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70"  height="350" width="720">
 
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
         
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci='65fd0486efef23927c03'
+        data-cs='df816f21b3b0f93478c5e7d0e0054760aaf94481'
+        data-r='mygitalk'
+        data-o='kumybryce'
+        data-a='kumybryce'
+        data-d='true'
+    >查看评论</div>
 
-        <div id="lv-container">
-        </div>
 
     </div>
-</div>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-        <li>
-            <a target="_blank"  href="https://github.com/kumybryce">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-github"></i>
-                            </span>
-            </a>
-        </li>
-        
-
-        
-
-    </ul>
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5环境配置"><span class="toc-number">1.</span> <span class="toc-text">pyqt5环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5的使用"><span class="toc-number">2.</span> <span class="toc-text">pyqt5的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pyqt5中的多线程"><span class="toc-number">3.</span> <span class="toc-text">pyqt5中的多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv图片叠加混合"><span class="toc-number">4.</span> <span class="toc-text">opencv图片叠加混合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同时播放两种声音"><span class="toc-number">5.</span> <span class="toc-text">同时播放两种声音</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置文本框只能输入数字"><span class="toc-number">6.</span> <span class="toc-text">设置文本框只能输入数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序功能介绍"><span class="toc-number">7.</span> <span class="toc-text">程序功能介绍</span></a></li></ol>	
+        </div>
+    
+</div>
 
 
-
-
+    </div>
+</div>
 </body>
 
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/myblog/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/myblog/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/myblog/js/plugin.js"></script>
+<script src="/myblog/js/typed.js"></script>
+<script src="/myblog/js/diaspora.js"></script>
 
 
-    <script type="text/javascript">
-       (function() {
-           if (typeof LivereTower === 'function') { return; }
+<link rel="stylesheet" href="/myblog/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/myblog/photoswipe/default-skin/default-skin.css">
 
-           var j, d = document.getElementById('lv-container');
 
-           d.setAttribute('data-id','city');
-           d.setAttribute('data-uid' , 'MTAyMC80ODc4MC8yNTI3NA==');
+<script src="/myblog/photoswipe/photoswipe.min.js"></script>
+<script src="/myblog/photoswipe/photoswipe-ui-default.min.js"></script>
 
-           j = document.createElement('script');
-           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-           j.async = true;
 
-           d.appendChild(j);
-       })();
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
     </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
 
 </html>
