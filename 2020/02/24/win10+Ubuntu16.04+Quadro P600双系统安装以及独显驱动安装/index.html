@@ -1,70 +1,8 @@
-
-<!DOCTYPE html>
-<html lang="zh" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装 - 山山</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="shanshan,"> 
-    <meta name="description" content="终于装完了双系统并完成了显卡配置这一步。安装双系统可以说是巨坑无数，这里从头记录一下
-
-烧录镜像首先是制作镜像，在网上下载了Ubuntu16.04版本的iso，18.04也是可以的，然后就是烧录程序,"> 
-    <meta name="author" content="山山"> 
-    <link rel="alternative" href="atom.xml" title="山山" type="application/atom+xml"> 
-    <link rel="icon" href="/myblog/img/favicon.png"> 
-    
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-
-    
-<link rel="stylesheet" href="/myblog/css/diaspora.css">
-
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">山山</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://kumybryce.gitee.io/myblog"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装</h1>
-        <div class="stuff">
-            <span>二月 24, 2020</span>
-            
-
-        </div>
-        <div class="content markdown">
-            <p>终于装完了双系统并完成了显卡配置这一步。安装双系统可以说是巨坑无数，这里从头记录一下</p>
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装"><meta name="keywords" content=""><meta name="author" content="山山"><meta name="copyright" content="山山"><meta name="theme-color" content="#5eb7b7"><title>win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装 | 山山 || 33</title><link rel="shortcut icon" href="/myblog/myblog/yun.svg"><link rel="mask-icon" href="/myblog/yun.svg" color="#5eb7b7"><link rel="preload" href="/myblog/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/myblog/js/utils.js" as="script"><link rel="preload" href="/myblog/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/myblog/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/myblog/css/hexo-theme-yun.css"><script id="yun-config">
+    let Yun = window.Yun || {};
+    let CONFIG = {"root":"/myblog/","title":"山山的掉发历程","version":"0.5.2","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"algolia":{"apiKey":"d2a03b6dcf61fe708eab80f138ca0ea3","indexName":"my-hexo-blog","hits":{"per_page":8},"labels":{"input_placeholder":"想要搜些什么？","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},"valine":{"el":"#valine-container","verify":false,"notify":false,"appId":"ENnEcdGIT16rS84XB1Oz0cwN-gzGzoHsz","appKey":"4eP69Ir5FxFhWy92iiR1QEUq","serverURLs":null,"placeholder":"来呀！快活呀！o(*￣▽￣*)o","avatar":null,"meta":["nick","mail","link"],"pageSize":10,"lang":"zh","visitor":false},"fireworks":{"colors":["151,229,239","255,240,245","248,225,244"]}};
+  </script><script src="//at.alicdn.com/t/font_1140697_9juba7x0cw.js" async></script><meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/myblog/css/prism-ghcolors.css" type="text/css">
+<link rel="stylesheet" href="/myblog/css/prism-line-numbers.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/myblog/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/myblog/about" title="山山"><img loading="lazy" src="/myblog/img/favicon.jpg" alt="山山"></a><div class="site-author-name"><a href="/myblog/about/">山山</a></div><a class="site-name" href="/myblog/about/site.html">山山 || 33</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/myblog/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/myblog/archives" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">3</span></a></div><a class="site-state-item hty-icon-button" href="https://yun.yunyoujun.cn" target="_blank" rel="noopener" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/kumybryce" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/myblog/links/" title="我的小伙伴们" style="color:#fff0f5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div></div><script defer src="/myblog/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content">很遗憾，咱没写啥目录</div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://kumybryce.gitee.io/myblog/myblog/2020/02/24/win10+Ubuntu16.04+Quadro%20P600%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8B%AC%E6%98%BE%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="山山"><meta itemprop="description" content="win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="山山 || 33"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装<a class="post-edit-link" href="https://gitee.com/kumybryce/myblog/2020_posts/win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装.md" target="_blank" title="Edit this post" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2020-02-24 14:54:09" itemprop="dateCreated datePublished" datetime="2020-02-24T14:54:09+08:00">2020-02-24</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2020-03-18 14:16:29" itemprop="dateModified" datetime="2020-03-18T14:16:29+08:00">2020-03-18</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><p>终于装完了双系统并完成了显卡配置这一步。安装双系统可以说是巨坑无数，这里从头记录一下</p>
 <ol>
 <li><p>烧录镜像<br>首先是制作镜像，在网上下载了Ubuntu16.04版本的iso，18.04也是可以的，然后就是烧录程序，这里需要准备一个空的U盘，烧录工具用的是UItraISO，安装好后打开烧录工具，选择镜像，注意此镜像不是放在U盘里面的。然后选择项目里面的硬盘，然后选择U盘，如果你插了其他的U盘一定要注意看看是否选对，然后选择格式化，最好选择fat-32格式，然后写入，很快，系统就写入成功了</p>
 </li>
@@ -73,149 +11,35 @@
 <li><p>显卡驱动<br>这里是最让人头疼的，因为Ubuntu自动选择集显，所以我插上外接屏没有任何反应，这里还有一个小插曲，每次插入显示屏都会直接崩溃，其实这个就是显卡的问题，因为我没有走完上面说的有关显卡那个blog，导致了这个问题，改了那3个地方插入显示频就不崩溃了，只是没有反应。<br>接下来就开始了漫长的探索之旅，点击屏幕右上角的设置图标选择about this computer就可以看到它用的哪张图形卡，我的是NVIDIA的专业图形卡Quadro P600，这里它并没有使用，所以自然无法拓展屏，更不用说后面深度学习使用显卡了。一番摸爬滚打可算是把显卡弄好了，接下来讲讲这里的步骤，注意我的配置是Quadro P600，其他的显卡未做尝试<br>首先，讲讲我遇到的方法，第一个是自己下载驱动，也就是到官网上下载相应显卡的最新驱动，一个.run文件，然后安装。这个方法我失败了。另一种放大是ppa安装，这个个人认为更靠谱，毕竟这是NVIDIA在Linux上设立的一个驱动安装源，这个遇到的问题是速度慢。接下来讲第二种方法。<br>在装上Ubuntu的第一时间，我就对apt更换了阿里源，这个网上搜搜就搞定了，有了源，很多软件就能飞速下载了，然后加入ppa源：</p>
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash"><code class="language-bash">    <span class="token function">sudo</span> add-apt-repository ppa:graphics-drivers/ppa
+    <span class="token function">sudo</span> <span class="token function">apt-get</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>运行第二条命令的时候就开始龟速了，这暗示着这个源离你千里之外，没错，这个源服务器ppa.launchpad.net远在英国，而且好像没有镜像，这就很坑了。加入ppa源后就可以安装驱动了，安装驱动之前，你需要知道你的显卡需要哪一款驱动：<br>运行之后可以看到系统推荐的NVIDIA版本，就是有<code>recommended</code>字样的，我的是<code>nvidia-430</code>，接下来安装驱动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nvidia-430</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> nvidia-430<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在这里，我下载速度变得奇慢无比，所以我尝试了翻墙、换其他安装方法等，都失败了，解决方法如下：<br>参考了<a href="https://learnku.com/articles/33436#ecff77" target="_blank" rel="noopener">这篇博客</a><br>运行3个命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install axel</span><br><span class="line">sudo axel -o /usr/bin/apt-fast http://www.mattparnell.com/linux/apt-	fast/apt-fast.sh</span><br><span class="line">sudo chmod +x /usr/bin/apt-fast</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-bash"><code class="language-bash">    <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> axel
+    <span class="token function">sudo</span> axel -o /usr/bin/apt-fast http://www.mattparnell.com/linux/apt-    fast/apt-fast.sh
+    <span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/bin/apt-fast<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>死在了第二条命令上，这里我直接打开了那个网址，可以直接看到脚本，所以我在<code>/usr/bin</code>目录下创建了文件<code>apt-fast</code>，然后将脚本内容复制进去，第三条命令是给这个脚本权限，然后执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-fast install nvidia-430</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> apt-fast <span class="token function">install</span> nvidia-430<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>成功，且速度还看得过去，几十KB/s，但也下了几个小时。。。装完后可以打开<code>software&amp;update</code>这个系统软件，选择<code>additional drivers</code>，如果选择的是你安装的版本，就表明成功了，也可以在这里安装，本质差不多。然后重启电脑，开始无限登录，参考了<a href="https://blog.csdn.net/kingthon/article/details/81151843" target="_blank" rel="noopener">这篇博客</a>，更改后成功进入，查看电脑信息发现用的正式我的独显，于是迫不及待地插上拓展屏，果然，成功了！显示屏的设置可以在NVIDIA的软件中设置，就是<code>NVIDIA X Server Settings</code>，还有就是系统设置里面的<code>display</code>里面可以设置，今天就记录到这里吧，其他问题可以留言一起探讨。</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
-                        
-                    
-                        
-                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
-                        
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-		data-enable='true'
-        data-ae='false'
-        data-ci='65fd0486efef23927c03'
-        data-cs='df816f21b3b0f93478c5e7d0e0054760aaf94481'
-        data-r='mygitalk'
-        data-o='kumybryce'
-        data-a='[kumybryce]'
-        data-d='true'
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class='side'>
-				
-        </div>
-    
-</div>
-
-
-    </div>
-</div>
-</body>
-
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/myblog/js/plugin.js"></script>
-<script src="/myblog/js/typed.js"></script>
-<script src="/myblog/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/myblog/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/myblog/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/myblog/photoswipe/photoswipe.min.js"></script>
-<script src="/myblog/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
-        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
-        messageStyle: "none"
-    });
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
-
-</html>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>山山</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://kumybryce.gitee.io/myblog/2020/02/24/win10+Ubuntu16.04+Quadro%20P600%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8B%AC%E6%98%BE%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" title="win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装">http://kumybryce.gitee.io/myblog/2020/02/24/win10+Ubuntu16.04+Quadro%20P600%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8B%AC%E6%98%BE%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless stating additionally.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/myblog/2020/03/18/PN%E5%BA%8F%E5%88%97%E7%9A%84%E4%BA%A7%E7%94%9F%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/" rel="prev" title="PN序列的产生以及相关函数的计算"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">PN序列的产生以及相关函数的计算</span></a></div><div class="post-nav-item"></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>若您无 GitHub 账号，可直接在下方匿名评论。</span><br><span>若您想及时得到回复提醒，建议跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br></div><div class="comment-container" id="valine-container"></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 山山</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  window.setTimeout(blog_live_time, 1000);
+  const start = new Date('2020-02-24T15:19:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div><script defer src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function initValine() {
+  new Valine(CONFIG.valine);
+}
+document.addEventListener("DOMContentLoaded", function() {
+  initValine();
+});</script></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#5eb7b7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script defer src="/myblog/js/search/index.js"></script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/myblog/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div><script defer src="/myblog/js/utils.js"></script><script defer src="/myblog/js/hexo-theme-yun.js"></script></body></html>

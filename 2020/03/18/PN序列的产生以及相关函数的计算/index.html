@@ -1,221 +1,91 @@
-
-<!DOCTYPE html>
-<html lang="zh" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PN序列的产生以及相关函数的计算 - 山山</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="shanshan,"> 
-    <meta name="description" content="
-求 PN 序列并极化（给定初始序列[1 0 0 0 0 0]），c(n)代表序列第 n 个值，c(0)代表 c(N)
-
-1234567891011121314151617181920212223f,"> 
-    <meta name="author" content="山山"> 
-    <link rel="alternative" href="atom.xml" title="山山" type="application/atom+xml"> 
-    <link rel="icon" href="/myblog/img/favicon.png"> 
-    
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-
-    
-<link rel="stylesheet" href="/myblog/css/diaspora.css">
-
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<body class="loading">
-    <span id="config-title" style="display:none">山山</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://kumybryce.gitee.io/myblog"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">PN序列的产生以及相关函数的计算</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">PN序列的产生以及相关函数的计算</h1>
-        <div class="stuff">
-            <span>三月 18, 2020</span>
-            
-
-        </div>
-        <div class="content markdown">
-            <ol>
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="PN序列的产生以及相关函数的计算"><meta name="keywords" content=""><meta name="author" content="山山"><meta name="copyright" content="山山"><meta name="theme-color" content="#5eb7b7"><title>PN序列的产生以及相关函数的计算 | 山山 || 33</title><link rel="shortcut icon" href="/myblog/myblog/yun.svg"><link rel="mask-icon" href="/myblog/yun.svg" color="#5eb7b7"><link rel="preload" href="/myblog/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/myblog/js/utils.js" as="script"><link rel="preload" href="/myblog/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/myblog/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/myblog/css/hexo-theme-yun.css"><script id="yun-config">
+    let Yun = window.Yun || {};
+    let CONFIG = {"root":"/myblog/","title":"山山的掉发历程","version":"0.5.2","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"algolia":{"apiKey":"d2a03b6dcf61fe708eab80f138ca0ea3","indexName":"my-hexo-blog","hits":{"per_page":8},"labels":{"input_placeholder":"想要搜些什么？","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},"valine":{"el":"#valine-container","verify":false,"notify":false,"appId":"ENnEcdGIT16rS84XB1Oz0cwN-gzGzoHsz","appKey":"4eP69Ir5FxFhWy92iiR1QEUq","serverURLs":null,"placeholder":"来呀！快活呀！o(*￣▽￣*)o","avatar":null,"meta":["nick","mail","link"],"pageSize":10,"lang":"zh","visitor":false},"fireworks":{"colors":["151,229,239","255,240,245","248,225,244"]}};
+  </script><script src="//at.alicdn.com/t/font_1140697_9juba7x0cw.js" async></script><meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/myblog/css/prism-ghcolors.css" type="text/css">
+<link rel="stylesheet" href="/myblog/css/prism-line-numbers.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/myblog/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/myblog/about" title="山山"><img loading="lazy" src="/myblog/img/favicon.jpg" alt="山山"></a><div class="site-author-name"><a href="/myblog/about/">山山</a></div><a class="site-name" href="/myblog/about/site.html">山山 || 33</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/myblog/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/myblog/archives" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">3</span></a></div><a class="site-state-item hty-icon-button" href="https://yun.yunyoujun.cn" target="_blank" rel="noopener" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/kumybryce" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/myblog/links/" title="我的小伙伴们" style="color:#fff0f5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div></div><script defer src="/myblog/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content">很遗憾，咱没写啥目录</div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://kumybryce.gitee.io/myblog/myblog/2020/03/18/PN%E5%BA%8F%E5%88%97%E7%9A%84%E4%BA%A7%E7%94%9F%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="山山"><meta itemprop="description" content="PN序列的产生以及相关函数的计算"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="山山 || 33"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">PN序列的产生以及相关函数的计算<a class="post-edit-link" href="https://gitee.com/kumybryce/myblog/2020_posts/PN序列的产生以及相关函数的计算.md" target="_blank" title="Edit this post" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2020-03-18 14:52:10" itemprop="dateCreated datePublished" datetime="2020-03-18T14:52:10+08:00">2020-03-18</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><ol>
 <li>求 PN 序列并极化（给定初始序列[1 0 0 0 0 0]），c(n)代表序列第 n 个值，c(0)代表 c(N)</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function <span class="built_in">cout</span>=c(L,n)</span><br><span class="line">    head=[[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>],%[<span class="number">6</span>,<span class="number">1</span>]</span><br><span class="line">          [<span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>],%[<span class="number">6</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">          [<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>]];%[<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>]</span><br><span class="line">    head_L=logical(head(L,:));</span><br><span class="line">    cc=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>];</span><br><span class="line">    <span class="keyword">c_t</span>=[];</span><br><span class="line">    N=<span class="number">63</span>;</span><br><span class="line">    n=mod(n,N);</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">        n=n+N;</span><br><span class="line">    end</span><br><span class="line">    <span class="keyword">for</span> i=<span class="number">1</span>:n<span class="number">-1</span></span><br><span class="line">       temp=cc(head_L);</span><br><span class="line">       <span class="keyword">c_t</span>(<span class="number">1</span>)=mod(sum(temp),<span class="number">2</span>);</span><br><span class="line">       <span class="keyword">c_t</span>(<span class="number">2</span>:<span class="number">6</span>)=cc(<span class="number">1</span>:<span class="number">5</span>);</span><br><span class="line">       cc = <span class="keyword">c_t</span>;</span><br><span class="line">    end</span><br><span class="line">    <span class="keyword">if</span>(cc(<span class="number">6</span>)&gt;<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">cout</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span> = <span class="number">-1</span>;</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
-
+<pre class="line-numbers language-cpp"><code class="language-cpp">function cout<span class="token operator">=</span><span class="token function">c</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+    head<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+          <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+          <span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token operator">%</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+    head_L<span class="token operator">=</span><span class="token function">logical</span><span class="token punctuation">(</span><span class="token function">head</span><span class="token punctuation">(</span>L<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cc<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    c_t<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    N<span class="token operator">=</span><span class="token number">63</span><span class="token punctuation">;</span>
+    n<span class="token operator">=</span><span class="token function">mod</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+        n<span class="token operator">=</span>n<span class="token operator">+</span>N<span class="token punctuation">;</span>
+    end
+    <span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n<span class="token number">-1</span>
+       temp<span class="token operator">=</span><span class="token function">cc</span><span class="token punctuation">(</span>head_L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token function">c_t</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">mod</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token function">c_t</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">cc</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       cc <span class="token operator">=</span> c_t<span class="token punctuation">;</span>
+    end
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">cc</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+        cout <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        cout <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="2">
 <li><p>求相关函数，Rc1(L1,L2)是指求 L1 抽头和 L2 抽头的互相关函数，L1=L2 则为自相关函数<br> L1:[6,1]</p>
 <p> L2:[6,5,2,1]</p>
 <p> L3:[6,5,4,1]</p>
 </li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function [Tao,RC]=Rc1(L1,L2)</span><br><span class="line">Rc=[];</span><br><span class="line">Rc_T=<span class="number">0</span>;</span><br><span class="line">tao=<span class="number">-50</span>:<span class="number">50</span>;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">-50</span>:<span class="number">50</span>)</span><br><span class="line">    <span class="keyword">for</span> t=<span class="number">-31</span>:<span class="number">31</span></span><br><span class="line">        Rc_T =Rc_T+c(L1,t)*c(L2,t-i);</span><br><span class="line">    end</span><br><span class="line">    Rc(i+<span class="number">51</span>)=Rc_T/<span class="number">63</span>;</span><br><span class="line">    Rc_T=<span class="number">0</span>;</span><br><span class="line">end</span><br><span class="line">Tao=tao;</span><br><span class="line">RC=Rc;</span><br><span class="line">plot(tao,Rc);</span><br></pre></td></tr></table></figure>
-
-
+<pre class="line-numbers language-cpp"><code class="language-cpp">function <span class="token punctuation">[</span>Tao<span class="token punctuation">,</span>RC<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">Rc1</span><span class="token punctuation">(</span>L1<span class="token punctuation">,</span>L2<span class="token punctuation">)</span>
+Rc<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+Rc_T<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+tao<span class="token operator">=</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">:</span><span class="token number">50</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> t<span class="token operator">=</span><span class="token operator">-</span><span class="token number">31</span><span class="token operator">:</span><span class="token number">31</span>
+        Rc_T <span class="token operator">=</span>Rc_T<span class="token operator">+</span><span class="token function">c</span><span class="token punctuation">(</span>L1<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">c</span><span class="token punctuation">(</span>L2<span class="token punctuation">,</span>t<span class="token operator">-</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    end
+    <span class="token function">Rc</span><span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">51</span><span class="token punctuation">)</span><span class="token operator">=</span>Rc_T<span class="token operator">/</span><span class="token number">63</span><span class="token punctuation">;</span>
+    Rc_T<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+end
+Tao<span class="token operator">=</span>tao<span class="token punctuation">;</span>
+RC<span class="token operator">=</span>Rc<span class="token punctuation">;</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>tao<span class="token punctuation">,</span>Rc<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ol start="3">
 <li>实际计算相关函数</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%%计算自相关函数</span><br><span class="line">%[<span class="number">6</span>,<span class="number">1</span>]</span><br><span class="line">[tao,Rc61]=Rc1(<span class="number">1</span>,<span class="number">1</span>);%Rc1是求相关函数，（<span class="number">1</span>,<span class="number">1</span>）则是[<span class="number">6</span>，<span class="number">1</span>]的自相关函数</span><br><span class="line">%[<span class="number">6</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">[tao,Rc6521]=Rc1(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">%%计算互相关函数</span><br><span class="line">[tao,cross1]=Rc1(<span class="number">1</span>,<span class="number">2</span>);%Rc1是求相关函数，（<span class="number">1</span>,<span class="number">2</span>）则是[<span class="number">6</span>,<span class="number">1</span>]和[<span class="number">6</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>]的互相关函数</span><br><span class="line">[tao,cross2]=Rc1(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>);plot(tao,Rc61);title(<span class="string">"[6,1]的自相关函数"</span>);xlabel(<span class="string">"τ"</span>);ylabel(<span class="string">"Rc(τ)"</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>);plot(tao,Rc6521);title(<span class="string">"[6,5,2,1]的自相关函数"</span>);xlabel(<span class="string">"τ"</span>);ylabel(<span class="string">"Rc(τ)"</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>);plot(tao,cross1*<span class="number">63</span>);axis([<span class="number">-60</span> <span class="number">60</span> <span class="number">-20</span> <span class="number">20</span>]);title(<span class="string">"[6,1]和[6,5,2,1]的互相关函数"</span>);xlabel(<span class="string">"τ"</span>);ylabel(<span class="string">"Rc(τ)"</span>);</span><br><span class="line">figure(<span class="number">2</span>);</span><br><span class="line">plot(tao,cross2*<span class="number">63</span>);axis([<span class="number">-60</span> <span class="number">60</span> <span class="number">-20</span> <span class="number">20</span>]);title(<span class="string">"[6,5,4,1]和[6,5,2,1]的互相关函数"</span>);xlabel(<span class="string">"τ"</span>);ylabel(<span class="string">"Rc(τ)"</span>);</span><br><span class="line">display(max(<span class="built_in">abs</span>(cross1)*<span class="number">63</span>));</span><br><span class="line">display(max(<span class="built_in">abs</span>(cross2)*<span class="number">63</span>));</span><br></pre></td></tr></table></figure>
-<p>输出结果：<br><img src="https://img-blog.csdnimg.cn/20200318143708855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70" alt="figure1"><br><img src="https://img-blog.csdnimg.cn/20200318143748900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70" alt="figure2"><br>这是数字通信课程的一道编程作业题，这里求相关函数采用的是循环，还有很大优化空间，要注意的是序列周期延拓各个下标的值怎么映射到原始序列，这其实就是一个求模的过程，这里互相关函数figure2最大值为15，figure1最大值为17，figure2中两个抽头产生的PN序列可用来产生gold序列，他们的互相关函数不会超过<br>$$<br>2^{(n+1)/2}+1,（n为奇数）<br>$$<br>$$<br>2^{(n+2)/2}+1,（n为偶数）<br>$$</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
-                        
-                    
-                        
-                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
-                        
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-		data-enable='true'
-        data-ae='false'
-        data-ci='65fd0486efef23927c03'
-        data-cs='df816f21b3b0f93478c5e7d0e0054760aaf94481'
-        data-r='mygitalk'
-        data-o='kumybryce'
-        data-a='[kumybryce]'
-        data-d='true'
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class='side'>
-				
-        </div>
-    
-</div>
-
-
-    </div>
-</div>
-</body>
-
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/myblog/js/plugin.js"></script>
-<script src="/myblog/js/typed.js"></script>
-<script src="/myblog/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/myblog/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/myblog/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/myblog/photoswipe/photoswipe.min.js"></script>
-<script src="/myblog/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
-        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
-        messageStyle: "none"
-    });
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-
-
-</html>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token operator">%</span><span class="token operator">%</span>计算自相关函数
+<span class="token operator">%</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>tao<span class="token punctuation">,</span>Rc61<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">Rc1</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">%</span>Rc1是求相关函数，（<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span>）则是<span class="token punctuation">[</span><span class="token number">6</span>，<span class="token number">1</span><span class="token punctuation">]</span>的自相关函数
+<span class="token operator">%</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>tao<span class="token punctuation">,</span>Rc6521<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">Rc1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">%</span><span class="token operator">%</span>计算互相关函数
+<span class="token punctuation">[</span>tao<span class="token punctuation">,</span>cross1<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">Rc1</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">%</span>Rc1是求相关函数，（<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span>）则是<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>和<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>的互相关函数
+<span class="token punctuation">[</span>tao<span class="token punctuation">,</span>cross2<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">Rc1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">plot</span><span class="token punctuation">(</span>tao<span class="token punctuation">,</span>Rc61<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"[6,1]的自相关函数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">xlabel</span><span class="token punctuation">(</span><span class="token string">"τ"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">ylabel</span><span class="token punctuation">(</span><span class="token string">"Rc(τ)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">plot</span><span class="token punctuation">(</span>tao<span class="token punctuation">,</span>Rc6521<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"[6,5,2,1]的自相关函数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">xlabel</span><span class="token punctuation">(</span><span class="token string">"τ"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">ylabel</span><span class="token punctuation">(</span><span class="token string">"Rc(τ)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">subplot</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">plot</span><span class="token punctuation">(</span>tao<span class="token punctuation">,</span>cross1<span class="token operator">*</span><span class="token number">63</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">axis</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">60</span> <span class="token number">60</span> <span class="token operator">-</span><span class="token number">20</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"[6,1]和[6,5,2,1]的互相关函数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">xlabel</span><span class="token punctuation">(</span><span class="token string">"τ"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">ylabel</span><span class="token punctuation">(</span><span class="token string">"Rc(τ)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">plot</span><span class="token punctuation">(</span>tao<span class="token punctuation">,</span>cross2<span class="token operator">*</span><span class="token number">63</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">axis</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">60</span> <span class="token number">60</span> <span class="token operator">-</span><span class="token number">20</span> <span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">title</span><span class="token punctuation">(</span><span class="token string">"[6,5,4,1]和[6,5,2,1]的互相关函数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">xlabel</span><span class="token punctuation">(</span><span class="token string">"τ"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">ylabel</span><span class="token punctuation">(</span><span class="token string">"Rc(τ)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">display</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>cross1<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">63</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">display</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>cross2<span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">63</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出结果：<br><img src="https://img-blog.csdnimg.cn/20200318143708855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70" alt="figure1" loading="lazy"><br><img src="https://img-blog.csdnimg.cn/20200318143748900.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTY3MjgyOA==,size_16,color_FFFFFF,t_70" alt="figure2" loading="lazy"><br>这是数字通信课程的一道编程作业题，这里求相关函数采用的是循环，还有很大优化空间，要注意的是序列周期延拓各个下标的值怎么映射到原始序列，这其实就是一个求模的过程，这里互相关函数figure2最大值为15，figure1最大值为17，figure2中两个抽头产生的PN序列可用来产生gold序列，他们的互相关函数不会超过<br>$$<br>2^{(n+1)/2}+1,（n为奇数）<br>$$<br>$$<br>2^{(n+2)/2}+1,（n为偶数）<br>$$</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>山山</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://kumybryce.gitee.io/myblog/2020/03/18/PN%E5%BA%8F%E5%88%97%E7%9A%84%E4%BA%A7%E7%94%9F%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/" title="PN序列的产生以及相关函数的计算">http://kumybryce.gitee.io/myblog/2020/03/18/PN%E5%BA%8F%E5%88%97%E7%9A%84%E4%BA%A7%E7%94%9F%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless stating additionally.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/myblog/2020/04/16/%E7%94%A8pyqt5%E5%AE%8C%E6%88%90python%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84GUI%E8%AE%BE%E8%AE%A1%E4%BB%A5%E5%8F%8Acv2%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/" rel="prev" title="用pyqt5完成python环境下的GUI设计以及cv2相关操作"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">用pyqt5完成python环境下的GUI设计以及cv2相关操作</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/myblog/2020/02/24/win10+Ubuntu16.04+Quadro%20P600%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E7%8B%AC%E6%98%BE%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" rel="next" title="win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装"><span class="post-nav-text">win10+Ubuntu16.04+Quadro P600双系统安装以及独显驱动安装</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>若您无 GitHub 账号，可直接在下方匿名评论。</span><br><span>若您想及时得到回复提醒，建议跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br></div><div class="comment-container" id="valine-container"></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 山山</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  window.setTimeout(blog_live_time, 1000);
+  const start = new Date('2020-02-24T15:19:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div><script defer src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function initValine() {
+  new Valine(CONFIG.valine);
+}
+document.addEventListener("DOMContentLoaded", function() {
+  initValine();
+});</script></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#5eb7b7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script defer src="/myblog/js/search/index.js"></script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/myblog/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div><script defer src="/myblog/js/utils.js"></script><script defer src="/myblog/js/hexo-theme-yun.js"></script></body></html>
