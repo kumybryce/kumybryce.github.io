@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/tags/index.html</loc>
+    
+    <lastmod>2020-04-16T21:55:15.723Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/categories/index.html</loc>
+    
+    <lastmod>2020-04-16T17:33:58.147Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/about/site.html</loc>
+    
+    <lastmod>2020-04-16T17:31:24.499Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/about/index.html</loc>
+    
+    <lastmod>2020-04-16T17:28:33.467Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/2020/04/15/pyqt5/</loc>
+    
+    <lastmod>2020-04-15T08:52:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/2020/03/23/PNseies/</loc>
+    
+    <lastmod>2020-03-23T08:52:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kumybryce.gitee.io/myblog/2020/03/18/ubuntu/</loc>
+    
+    <lastmod>2020-03-18T08:52:24.000Z</lastmod>
+    
+  </url>
+  
+</urlset>
