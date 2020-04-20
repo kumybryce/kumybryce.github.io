@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kumybryce.gitee.io/myblog/2020/04/20/hexo/</loc>
+    
+    <lastmod>2020-04-20T13:00:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kumybryce.gitee.io/myblog/tags/index.html</loc>
     
     <lastmod>2020-04-16T21:55:15.723Z</lastmod>
